@@ -40,31 +40,34 @@ export const TodoApp = () => {
 
   return (
     <>
-      <h2>Todo List {todos.length}</h2>
-      Add New Task :
-      <input
-        type="text"
-        onBlur={(e) =>
-          dispatch({ type: TODOS_ACTION.ADD_TASK, payload: e.target.value })
-        }
-      />
-      {todos.map((todos) => (
-        <li key={todos.id}>
-          {todos.name}
-          <span>
-            <button
-              onClick={() =>
-                dispatch({
-                  type: TODOS_ACTION.DELETE_TASK,
-                  payload: todos.id,
-                })
-              }
-            >
-              Delete
-            </button>
-          </span>
-        </li>
-      ))}
+      <div id="mainTodoContainer">
+        <h2>Todo List {todos.length}</h2>
+        <p> Add New Task : </p>
+        <input
+          type="text"
+          onBlur={(e) =>
+            dispatch({ type: TODOS_ACTION.ADD_TASK, payload: e.target.value })
+          }
+        />
+        {todos.map((todos) => (
+          <li key={todos.id}>
+            {todos.name}
+            <span>
+              <button
+                id="AddBtn"
+                onClick={() =>
+                  dispatch({
+                    type: TODOS_ACTION.DELETE_TASK,
+                    payload: todos.id,
+                  })
+                }
+              >
+                Delete
+              </button>
+            </span>
+          </li>
+        ))}
+      </div>
     </>
   );
 };
