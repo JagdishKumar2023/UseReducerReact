@@ -31,7 +31,7 @@ function reducer(state, action) {
 }
 
 function init(initialState) {
-  const result = [...initialState, { id: "1", name: "reading" }];
+  const result = [...initialState, { id: "0" }];
   return result;
 }
 
